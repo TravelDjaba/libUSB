@@ -1950,26 +1950,15 @@ function libusb_set_option(ctx:Plibusb_context; option:array of Tlibusb_option):
 
 implementation
 
- type
-  T_tmp = record
-    b8:array[0..1] of UInt8;
-    b16:UInt16;
-    end;
-
+ 
 function libusb_le16_to_cpu(const x:UInt16):UInt16; inline;
-   var _tmp:T_tmp;
   begin
-   _tmp.b8[1] := uint8(x shr 8);
-   _tmp.b8[0] := uint8(x and $ff);
-	 result:= _tmp.b16;
+	result := ((x and $00FF) shl 8) or ((x and $FF00) shr 8);
   end;
 
 function libusb_cpu_to_le16(const x:UInt16):UInt16; inline;
-   var _tmp:T_tmp;
   begin
-   _tmp.b8[1] := uint8(x shr 8);
-   _tmp.b8[0] := uint8(x and $ff);
-	 result:= _tmp.b16;
+	result:=libusb_le16_to_cpu(x);
   end;
 
 
