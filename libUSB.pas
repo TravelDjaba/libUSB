@@ -10,10 +10,10 @@ interface
 
 {
  * Public libusb header file
- * Copyright © 2001 Johannes Erdfelt <johannes@erdfelt.com>
- * Copyright © 2007-2008 Daniel Drake <dsd@gentoo.org>
- * Copyright © 2012 Pete Batard <pete@akeo.ie>
- * Copyright © 2012 Nathan Hjelm <hjelmn@cs.unm.edu>
+ * Copyright Â© 2001 Johannes Erdfelt <johannes@erdfelt.com>
+ * Copyright Â© 2007-2008 Daniel Drake <dsd@gentoo.org>
+ * Copyright Â© 2012 Pete Batard <pete@akeo.ie>
+ * Copyright Â© 2012 Nathan Hjelm <hjelmn@cs.unm.edu>
  * For more information, please visit: http://libusb.info
  *
  * This library is free software; you can redistribute it and/or
@@ -1694,7 +1694,8 @@ function libusb_get_string_descriptor_ascii( dev_handle:Plibusb_device_handle;
 type
   PTimeval=^Ttimeval;
   Ttimeval=record
-
+   tv_sec: Longint;
+   tv_usec: Longint;
   end;
 
 
